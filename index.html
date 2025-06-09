@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carta para Você</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <audio id="music" src="musica.mp3" loop></audio>
+
+    <!-- Carta Fechada -->
+    <div class="envelope" id="envelope">
+        <div class="front">
+            💌
+            <p>Clique para abrir</p>
+        </div>
+    </div>
+
+    <!-- Tela de senha -->
+    <div class="password-screen" id="passwordScreen">
+        <h2>💖 Antes de abrir...</h2>
+        <p>Dica: Nosso noivado!!</p>
+        <input type="password" id="passwordInput" placeholder="Digite a senha" />
+        <button id="checkPassword">Confirmar</button>
+        <p id="passwordError" class="error"></p>
+    </div>
+
+    <!-- Conteúdo escondido -->
+    <div id="content" class="hidden">
+        <button id="toggleMusic">🔊</button>
+
+        <section class="intro">
+            <h1>Nosso Amor</h1>
+            <p>
+                No começo, tudo parecia impossível.<br>
+                Eles vinham de igrejas diferentes...<br>
+                Os pais dela não aceitavam o relacionamento...<br>
+                Mas o amor venceu cada obstáculo.<br><br>
+                Hoje, estamos noivos! E no dia <strong>10/04/2026</strong> diremos "sim" para sempre!
+            </p>
+        </section>
+
+        <section class="slider">
+            <div class="slides">
+                <img src="img/eles1.jpeg" alt="Foto 1">
+                <img src="img/ele2.jpeg" alt="Foto 2">
+                <img src="img/eles3.jpeg" alt="Foto 3">
+                <img src="img/eles4.jpeg" alt="Foto 4">
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2>Um momento especial nosso 💞</h2>
+            <video controls poster="img/capavideo.jpeg">
+                <source src="img/eles.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo.
+            </video>
+        </section>
+
+        <section class="love-message">
+            <h2>Feliz Dia dos Namorados ❤️</h2>
+            <p>
+                Amor, hoje é mais um Dia dos Namorados ao seu lado — e a cada data como essa, eu percebo o quanto sou
+                abençoado por ter você comigo. <br><br>
+                A nossa história começou com desafios, lutas, e muitos obstáculos... mas juntos, vencemos cada um deles.
+                O que era impossível aos olhos do mundo, Deus fez acontecer. <br><br>
+                Hoje somos noivos, e em breve, seremos marido e mulher. E eu não poderia estar mais feliz por dividir a
+                vida com alguém tão incrível como você. <br><br>
+                Obrigado por me amar, me apoiar, me ensinar, e me fazer sorrir todos os dias. Você é o meu presente, meu
+                refúgio e meu futuro. <br><br>
+                Eu te amo mais do que palavras podem explicar. Feliz Dia dos Namorados, minha vida. 💖
+            </p>
+        </section>
+
+        <footer>
+            <p>Feliz Dia dos Namorados! 💖</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
