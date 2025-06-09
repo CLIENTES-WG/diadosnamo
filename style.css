@@ -66,20 +66,21 @@ body {
 .slider {
   width: 100%;
   overflow: hidden;
-  margin-top: 1em;
+  margin: 2em 0;
 }
 
 .slides {
   display: flex;
-  width: 400%;
+  width: 400%; /* 4 imagens */
   animation: slide 30s infinite ease-in-out;
 }
 
 .slides img {
-  width: 100%;
-  height: 500px; /* ou ajuste para a altura desejada, ex: 250px, 350px */
+  width: 100vw; /* 100% da largura da tela */
+  height: 300px; /* ou 250px/350px conforme desejar */
   object-fit: cover;
   border-radius: 10px;
+  flex-shrink: 0; /* impede encolhimento da imagem */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
