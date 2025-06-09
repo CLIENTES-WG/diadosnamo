@@ -77,8 +77,10 @@ body {
 
 .slides img {
   width: 100%;
-  height: auto;
-  border-radius: 15px;
+  height: 300px; /* ou ajuste para a altura desejada, ex: 250px, 350px */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes slide {
@@ -88,7 +90,11 @@ body {
   75% { transform: translateX(-300%); }
   100% { transform: translateX(0); }
 }
-
+@media (max-width: 600px) {
+  .slider img {
+    height: 220px;
+  }
+}
 footer {
   margin-top: 2em;
   font-size: 1.2em;
