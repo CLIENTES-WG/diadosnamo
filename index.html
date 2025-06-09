@@ -1,86 +1,242 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carta para Você</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
+body {
+  background: linear-gradient(to bottom, #ffdee9, #b5fffc);
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
 
-<body>
-    <audio id="music" src="musica.mp3" loop></audio>
+.envelope {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  transition: transform 1s ease;
+  cursor: pointer;
+  flex-direction: column;
+}
 
-    <!-- Carta Fechada -->
-    <div class="envelope" id="envelope">
-        <div class="front">
-            💌
-            <p>Clique para abrir</p>
-        </div>
-    </div>
+.envelope .front {
+  font-size: 5em;
+  animation: pulse 2s infinite;
+}
 
-    <!-- Tela de senha -->
-    <div class="password-screen" id="passwordScreen">
-        <h2>💖 Antes de abrir...</h2>
-        <p>Dica: Nosso noivado!!</p>
-        <input type="password" id="passwordInput" placeholder="Digite a senha" />
-        <button id="checkPassword">Confirmar</button>
-        <p id="passwordError" class="error"></p>
-    </div>
+.envelope p {
+  font-size: 1.2em;
+  margin-top: 1em;
+  color: #555;
+}
 
-    <!-- Conteúdo escondido -->
-    <div id="content" class="hidden">
-        <button id="toggleMusic">🔊</button>
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
 
-        <section class="intro">
-            <h1>Nosso Amor</h1>
-            <p>
-                No começo, tudo parecia impossível.<br>
-                Eles vinham de igrejas diferentes...<br>
-                Os pais dela não aceitavam o relacionamento...<br>
-                Mas o amor venceu cada obstáculo.<br><br>
-                Hoje, estamos noivos! E no dia <strong>10/04/2026</strong> diremos "sim" para sempre!
-            </p>
-        </section>
+.hidden {
+  display: none;
+}
 
-        <section class="slider">
-            <div class="slides">
-                <img src="img/eles1.jpeg" alt="Foto 1">
-                <img src="img/ele2.jpeg" alt="Foto 2">
-                <img src="img/eles3.jpeg" alt="Foto 3">
-                <img src="img/eles4.jpeg" alt="Foto 4">
-            </div>
-        </section>
+.show {
+  animation: fadeIn 2s forwards;
+}
 
-        <section class="video-section">
-            <h2>Um momento especial nosso 💞</h2>
-            <video controls poster="img/capavideo.jpeg">
-                <source src="img/eles.mp4" type="video/mp4">
-                Seu navegador não suporta vídeo.
-            </video>
-        </section>
+.intro {
+  padding: 2em 1em;
+}
 
-        <section class="love-message">
-            <h2>Feliz Dia dos Namorados ❤️</h2>
-            <p>
-                Amor, hoje é mais um Dia dos Namorados ao seu lado — e a cada data como essa, eu percebo o quanto sou
-                abençoado por ter você comigo. <br><br>
-                A nossa história começou com desafios, lutas, e muitos obstáculos... mas juntos, vencemos cada um deles.
-                O que era impossível aos olhos do mundo, Deus fez acontecer. <br><br>
-                Hoje somos noivos, e em breve, seremos marido e mulher. E eu não poderia estar mais feliz por dividir a
-                vida com alguém tão incrível como você. <br><br>
-                Obrigado por me amar, me apoiar, me ensinar, e me fazer sorrir todos os dias. Você é o meu presente, meu
-                refúgio e meu futuro. <br><br>
-                Eu te amo mais do que palavras podem explicar. Feliz Dia dos Namorados, minha vida. 💖
-            </p>
-        </section>
+.intro h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.5em;
+  color: #d63384;
+}
 
-        <footer>
-            <p>Feliz Dia dos Namorados! 💖</p>
-        </footer>
-    </div>
+.intro p {
+  font-size: 1.1em;
+  line-height: 1.6em;
+  color: #333;
+}
 
-    <script src="script.js"></script>
-</body>
+.slider {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 1em;
+}
 
-</html>
+.slides {
+  display: flex;
+  width: 400%;
+  animation: slide 30s infinite ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  height: 500px; /* ou ajuste para a altura desejada, ex: 250px, 350px */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
+@media (max-width: 600px) {
+  .slider img {
+    height: 220px;
+  }
+}
+footer {
+  margin-top: 2em;
+  font-size: 1.2em;
+  color: #555;
+}
+
+#toggleMusic {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.2em;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.video-section {
+  margin: 2em 1em;
+  text-align: center;
+}
+
+.video-section h2 {
+  font-size: 1.6em;
+  margin-bottom: 1em;
+  color: #c9184a;
+}
+
+.video-section video {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.password-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #ffd6e0, #ffffff);
+  padding: 2em;
+  text-align: center;
+}
+
+.password-screen input {
+  padding: 0.8em;
+  margin-top: 1em;
+  border: 2px solid #ff8fab;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.password-screen button {
+  margin-top: 1em;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  border: none;
+  background-color: #ff5d8f;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.password-screen button:hover {
+  background-color: #e04879;
+}
+
+.error {
+  color: red;
+  margin-top: 0.5em;
+  font-size: 0.9em;
+}
+
+.heart {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: #ff6b81;
+  transform: rotate(45deg);
+  animation: float 4s ease-in infinite;
+  z-index: 999;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff6b81;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes float {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-600px) rotate(45deg);
+  }
+}
+
+.love-message {
+  padding: 2em 1em;
+  text-align: center;
+  background-color: #fff0f5;
+  margin-top: 2em;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.love-message h2 {
+  font-size: 1.8em;
+  color: #d6336c;
+  margin-bottom: 1em;
+}
+
+.love-message p {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6em;
+}
